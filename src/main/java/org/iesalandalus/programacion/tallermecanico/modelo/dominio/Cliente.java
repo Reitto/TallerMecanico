@@ -1,3 +1,4 @@
+//Adrián Visiedo Rodríguez
 package org.iesalandalus.programacion.tallermecanico.modelo.dominio;
 
 import java.util.Objects;
