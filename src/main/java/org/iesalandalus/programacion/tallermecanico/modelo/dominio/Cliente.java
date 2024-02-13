@@ -19,9 +19,9 @@ public class Cliente {
 
     public Cliente(Cliente cliente) {
         Objects.requireNonNull(cliente, "No es posible copiar un cliente nulo.");
-        setDni(cliente.dni);
-        setNombre(cliente.nombre);
-        setTelefono(cliente.telefono);
+        dni = cliente.dni;
+        nombre = cliente.nombre;
+        telefono = cliente.telefono;
     }
 
     public String getNombre() {
@@ -54,8 +54,7 @@ public class Cliente {
     private boolean comprobarLetraDni(String dni) {
         String numerosDNI = dni.substring(0, 8);
         char letraDNI = dni.charAt(8);
-        int numDNI;
-        numDNI = Integer.parseInt(numerosDNI);
+        int numDNI = Integer.parseInt(numerosDNI);
         char letraCalculada = "TRWAGMYFPDXBNJZSQVHLCKE".charAt(numDNI % 23);
         return letraCalculada == letraDNI;
     }
