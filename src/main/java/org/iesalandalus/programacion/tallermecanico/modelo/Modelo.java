@@ -19,7 +19,7 @@ public class Modelo {
     private Clientes clientes;
     private Vehiculos vehiculos;
     private Revisiones revisiones;
-
+    public Modelo(){ /* empty */ }
     public void comenzar() {
         clientes = new Clientes();
         vehiculos = new Vehiculos();
