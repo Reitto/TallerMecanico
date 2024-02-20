@@ -18,19 +18,19 @@ public class Controlador {
     public Controlador(Modelo modelo, Vista vista) {
         Objects.requireNonNull(modelo, "El modelo no puede ser nulo.");
         Objects.requireNonNull(vista, "La vista no puede ser nula.");
-        this.modelo = modelo;
+        this.modelo = new Modelo();
         this.vista = vista;
         vista.setControlador(this);
     }
 
     public void comenzar() {
-        vista.comenzar();
         modelo.comenzar();
+        vista.comenzar();
     }
 
     public void terminar() {
-        vista.terminar();
         modelo.terminar();
+        vista.terminar();
     }
 
     public void insertar(Cliente cliente) throws OperationNotSupportedException {

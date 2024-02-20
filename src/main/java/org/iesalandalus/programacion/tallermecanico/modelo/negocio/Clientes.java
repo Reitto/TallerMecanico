@@ -17,7 +17,7 @@ public class Clientes {
     }
 
     public List<Cliente> get() {
-        return coleccionClientes;
+        return new ArrayList<>(coleccionClientes);
     }
 
     public void insertar(Cliente cliente) throws OperationNotSupportedException {
@@ -51,7 +51,7 @@ public class Clientes {
         if (!coleccionClientes.contains(cliente)) {
             cliente = null;
         }
-        return cliente;
+        return coleccionClientes.get(coleccionClientes.indexOf(cliente));
     }
 
     public void borrar(Cliente cliente) throws OperationNotSupportedException {

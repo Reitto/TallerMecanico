@@ -74,7 +74,7 @@ public class Cliente {
     }
 
     public static Cliente get(String dni) {
-        return new Cliente("Adrian", dni, "123456789");
+        return new Cliente("Pepe", dni, "123456789");
     }
 
     @Override

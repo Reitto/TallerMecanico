@@ -91,7 +91,7 @@ public class Revisiones {
         if (!coleccionRevisiones.contains(revision)) {
             revision = null;
         }
-        return revision;
+        return  coleccionRevisiones.get(coleccionRevisiones.indexOf(revision));
     }
 
     public void borrar(Revision revision) throws OperationNotSupportedException {

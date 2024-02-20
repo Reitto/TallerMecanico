@@ -19,8 +19,8 @@ public class Vista {
 
     public void comenzar() {
         Opcion opcion;
+        Consola.mostrarMenu();
         do {
-            Consola.mostrarMenu();
             opcion = Consola.elegirOpcion();
             ejecutar(opcion);
         } while (opcion != Opcion.SALIR);
@@ -56,20 +56,22 @@ public class Vista {
     }
 
     private void insertarCliente() {
-        Consola.mostrarCabecera("Inserte cliente");
+        Consola.mostrarCabecera("Inserte un cliente");
         try {
             controlador.insertar(Consola.leerCliente());
+            System.out.println("El cliente se introdujo correctamente");
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
-            System.out.print(e.getMessage());
+            System.out.println("El cliente no se pudo insertar");
         }
     }
 
     private void insertarVehiculo() {
-        Consola.mostrarCabecera("Inserte vehículo");
+        Consola.mostrarCabecera("Inserte un vehículo");
         try {
             controlador.insertar(Consola.leerVehiculo());
+            System.out.println("El vehículo se introdujo correctamente");
         } catch (IllegalArgumentException | OperationNotSupportedException | NullPointerException e) {
-            System.out.println(e.getMessage());
+            System.out.println("El vehículo no se pudo insertar");
         }
     }
 
@@ -77,35 +79,36 @@ public class Vista {
         Consola.mostrarCabecera("Inserte una revisión");
         try {
             controlador.insertar(Consola.leerRevision());
+            System.out.println("La revisión se introdujo correctamente");
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
-            System.out.println(e.getMessage());
+            System.out.println("La revision no se pudo insertar");
         }
     }
 
     private void buscarCliente() {
-        Consola.mostrarCabecera("Buscar cliente");
+        Consola.mostrarCabecera("Busque un cliente");
         try {
             System.out.println(controlador.buscar(Consola.leerClienteDni()));
         } catch (IllegalArgumentException | NullPointerException e) {
-            System.out.println(e.getMessage());
+            System.out.println("El cliente buscado no existe.");
         }
     }
 
     private void buscarVehiculo() {
-        Consola.mostrarCabecera("Buscar vehículo");
+        Consola.mostrarCabecera("Busque un vehículo");
         try {
             System.out.println(controlador.buscar(Consola.leerVehiculoMatricula()));
         } catch (IllegalArgumentException | NullPointerException e) {
-            System.out.println(e.getMessage());
+            System.out.println("El vehiculo buscado no existe.");
         }
     }
 
     private void buscarRevision() {
-        Consola.mostrarCabecera("Buscar revisión");
+        Consola.mostrarCabecera("Busque una revisión");
         try {
             System.out.println(controlador.buscar(Consola.leerRevision()));
         } catch (IllegalArgumentException | NullPointerException e) {
-            System.out.println(e.getMessage());
+            System.out.println("La revisión buscada no existe.");
         }
     }
 
@@ -123,11 +126,12 @@ public class Vista {
     }
 
     private void anadirHoras() {
-        Consola.mostrarCabecera("Añadir horas");
+        Consola.mostrarCabecera("Añada horas");
         try {
             controlador.anadirHoras(Consola.leerRevision(),Consola.leerHoras());
+            System.out.println("Las horas han sido añadidas correctamente");
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Las horas no han sido añadidas correctamente");
         }
     }
 
@@ -136,43 +140,46 @@ public class Vista {
         try {
             controlador.anadirPrecioMaterial(Consola.leerRevision(), Consola.leerPrecioMaterial());
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
-            System.out.println(e.getMessage());
+            System.out.println("El precio del material no ha sido agregado correctamente");
         }
     }
 
     private void cerrar() {
-        Consola.mostrarCabecera("Cerrar la revisión");
+        Consola.mostrarCabecera("Cierre la revisión");
         try {
             controlador.cerrar(Consola.leerRevision(), Consola.leerFechaCierre());
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
-            System.out.println(e.getMessage());
+            System.out.println("La revision no pudo cerrarse");
         }
     }
 
     private void borrarCliente() {
-        Consola.mostrarCabecera("Borrar cliente");
+        Consola.mostrarCabecera("Borre cliente");
         try {
             controlador.borrar(Consola.leerClienteDni());
+            System.out.println("El cliente fue eliminado correctamente");
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
-            System.out.println(e.getMessage());
+            System.out.println("El cliente no pudo ser eliminado");
         }
     }
 
     private void borrarVehiculo() {
-        Consola.mostrarCabecera("Borrar vehículo");
+        Consola.mostrarCabecera("Borre vehículo");
         try {
             controlador.borrar(Consola.leerVehiculo());
+            System.out.println("El vehiculo fue eliminado correctamente");
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
-            System.out.println(e.getMessage());
+            System.out.println("El vehiculo no pudo ser eliminado");
         }
     }
 
     private void borrarRevision() {
-        Consola.mostrarCabecera("Borrar revisión");
+        Consola.mostrarCabecera("Borre revisión");
         try {
             controlador.borrar(Consola.leerRevision());
+            System.out.println("La revisión fue eliminada correctamente");
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
-            System.out.println(e.getMessage());
+            System.out.println("La revisión no pudo ser eliminada");
         }
     }
 

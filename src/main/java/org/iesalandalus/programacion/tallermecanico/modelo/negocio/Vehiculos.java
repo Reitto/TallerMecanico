@@ -31,7 +31,7 @@ public class Vehiculos {
         if (!coleccionVehiculos.contains(vehiculo)) {
             vehiculo = null;
         }
-        return vehiculo;
+        return  coleccionVehiculos.get(coleccionVehiculos.indexOf(vehiculo));
     }
 
     public void borrar(Vehiculo vehiculo) throws OperationNotSupportedException {

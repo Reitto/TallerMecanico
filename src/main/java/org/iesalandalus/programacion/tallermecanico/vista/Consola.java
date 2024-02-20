@@ -70,8 +70,8 @@ public class Consola {
     }
 
     public static Cliente leerCliente() {
-        String dni = Consola.leerCadena("Introduce un dni para el cliente:");
         String nombre = Consola.leerCadena("Introduce un nombre para el cliente:");
+        String dni = Consola.leerCadena("Introduce un dni para el cliente:");
         String telefono = Consola.leerCadena("Introduce un teléfono para el cliente:");
         return new Cliente(nombre, dni, telefono);
     }
@@ -90,10 +90,10 @@ public class Consola {
     }
 
     public static Vehiculo leerVehiculo() {
-        String matricula = leerCadena("Introduce la matrícula del vehiculo:");
         String marca = leerCadena("Introduce una marca para el vehiculo:");
         String modelo = leerCadena("Introduce el modelo para el vehiculo:");
-        return new Vehiculo(marca, modelo, matricula);
+        String matricula = leerCadena("Introduce la matrícula del vehiculo:");
+        return new Vehiculo(marca, modelo, matricula );
     }
 
     public static Vehiculo leerVehiculoMatricula() {

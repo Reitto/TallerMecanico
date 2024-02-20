@@ -25,13 +25,14 @@ public enum Opcion {
     SALIR(19, "Salir");
     private final int numeroOpcion;
     private final String mensaje;
-    private static final Map<Integer, Opcion> Opciones = new HashMap<>() {
-        static {
-            for (Opcion opcion : Opciones.values()) {
-                Opciones.put(opcion.numeroOpcion, opcion);
-            }
+    private static final Map<Integer, Opcion> Opciones = new HashMap<>();
+
+    static {
+        for (Opcion opcion : values()) {
+            Opciones.put(opcion.numeroOpcion, opcion);
         }
-    };
+    }
+
 
     Opcion(int numeroOpcion, String mensaje) {
         this.numeroOpcion = numeroOpcion;
@@ -39,18 +40,20 @@ public enum Opcion {
     }
 
     public static boolean esValida(int numeroOpcion) {
-        return numeroOpcion > 0 && numeroOpcion < 20;
+        return Opciones.containsKey(numeroOpcion);
     }
 
     public static Opcion get(int numeroOpcion) {
+        Opcion[] opciones = Opcion.values();
         if (!esValida(numeroOpcion)) {
             throw new IllegalArgumentException("La opción pasada por parámetro no es válida");
         }
-        return Opcion.values()[numeroOpcion - 1];
+        return opciones[numeroOpcion - 1];
     }
+
 
     @Override
     public String toString() {
-        return String.format("Opcion: numeroOpcion=%s, mensaje=%s", this.numeroOpcion, this.mensaje);
+        return String.format("Opcion: %s, %s", this.numeroOpcion, this.mensaje);
     }
 }
