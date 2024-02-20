@@ -9,21 +9,27 @@ import org.iesalandalus.programacion.tallermecanico.vista.Vista;
 import javax.naming.OperationNotSupportedException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public class Controlador {
     private final Modelo modelo;
-    private Vista vista;
+    private final Vista vista;
 
     public Controlador(Modelo modelo, Vista vista) {
+        Objects.requireNonNull(modelo, "El modelo no puede ser nulo.");
+        Objects.requireNonNull(vista, "La vista no puede ser nula.");
         this.modelo = modelo;
         this.vista = vista;
+        vista.setControlador(this);
     }
 
     public void comenzar() {
+        vista.comenzar();
         modelo.comenzar();
     }
 
     public void terminar() {
+        vista.terminar();
         modelo.terminar();
     }
 
@@ -48,7 +54,7 @@ public class Controlador {
     }
 
     public Revision buscar(Revision revision) {
-        return buscar(revision);
+        return modelo.buscar(revision);
     }
 
     public boolean modificar(Cliente cliente, String nombre, String telefono) throws OperationNotSupportedException {
@@ -59,7 +65,7 @@ public class Controlador {
         modelo.anadirHoras(revision, horas);
     }
 
-    public void anadirPrecioMaterial(Revision revision, int precioMaterial) throws OperationNotSupportedException {
+    public void anadirPrecioMaterial(Revision revision, float precioMaterial) throws OperationNotSupportedException {
         modelo.anadirPrecioMaterial(revision, precioMaterial);
     }
 
