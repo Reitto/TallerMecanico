@@ -43,11 +43,10 @@ public enum Opcion {
     }
 
     public static Opcion get(int numeroOpcion) {
-        Opcion[] opciones = Opcion.values();
         if (!esValida(numeroOpcion)) {
             throw new IllegalArgumentException("La opción pasada por parámetro no es válida");
         }
-        return opciones[numeroOpcion - 1];
+        return Opcion.values()[numeroOpcion - 1];
     }
 
     @Override
