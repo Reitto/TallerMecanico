@@ -27,7 +27,7 @@ public class Vista {
     }
 
     public void terminar() {
-        System.out.println("El programa ha finalizado.");
+        System.out.println("El programa cerro correctamente.");
     }
 
     private void ejecutar(Opcion opcion) {
@@ -56,7 +56,7 @@ public class Vista {
     }
 
     private void insertarCliente() {
-        Consola.mostrarCabecera("Inserta cliente");
+        Consola.mostrarCabecera("Inserte cliente");
         try {
             controlador.insertar(Consola.leerCliente());
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
@@ -65,7 +65,7 @@ public class Vista {
     }
 
     private void insertarVehiculo() {
-        Consola.mostrarCabecera("Inserta vehículo");
+        Consola.mostrarCabecera("Inserte vehículo");
         try {
             controlador.insertar(Consola.leerVehiculo());
         } catch (IllegalArgumentException | OperationNotSupportedException | NullPointerException e) {
@@ -74,7 +74,7 @@ public class Vista {
     }
 
     private void insertarRevision() {
-        Consola.mostrarCabecera("Inserta revisión");
+        Consola.mostrarCabecera("Inserte una revisión");
         try {
             controlador.insertar(Consola.leerRevision());
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
