@@ -77,7 +77,7 @@ public class Consola {
     }
 
     public static Cliente leerClienteDni() {
-        String dni = Consola.leerCadena("Introduce un dni válido:");
+        String dni = Consola.leerCadena("Introduce un dni para el cliente:");
         return Cliente.get(dni);
     }
 
