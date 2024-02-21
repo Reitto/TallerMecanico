@@ -5,6 +5,7 @@ import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
 
+
 import javax.naming.OperationNotSupportedException;
 import java.util.List;
 import java.util.Objects;
@@ -116,7 +117,11 @@ public class Vista {
         Consola.mostrarCabecera("Modifique el cliente");
         boolean modificador = false;
         try {
-            modificador = controlador.modificar(Consola.leerClienteDni(), Consola.leerNuevoNombre(), Consola.leerNuevoTelefono());
+            Cliente cliente=Consola.leerClienteDni();
+            String nombre = Consola.leerNuevoNombre();
+            String telefono = Consola.leerNuevoTelefono();
+            controlador.modificar(cliente,nombre,telefono);
+            modificador = controlador.modificar(cliente, nombre, telefono);
         } catch (IllegalArgumentException | NullPointerException | OperationNotSupportedException e) {
             System.out.println(e.getMessage());
         }

@@ -23,7 +23,7 @@ public class Controlador {
         vista.setControlador(this);
     }
 
-    public void comenzar() {
+    public void comenzar() throws OperationNotSupportedException {
         modelo.comenzar();
         vista.comenzar();
     }

@@ -29,8 +29,8 @@ public class Clientes {
     }
 
     public boolean modificar(Cliente cliente, String nombre, String telefono) throws OperationNotSupportedException {
-        Objects.requireNonNull(cliente, "No se puede modificar un cliente nulo.");
         boolean modificador = false;
+        Objects.requireNonNull(cliente, "No se puede modificar un cliente nulo.");
         if (!coleccionClientes.contains(cliente)) {
             throw new OperationNotSupportedException("No existe ningún cliente con ese DNI.");
         }
