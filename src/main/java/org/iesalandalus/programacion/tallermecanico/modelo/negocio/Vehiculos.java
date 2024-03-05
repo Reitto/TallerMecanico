@@ -2,6 +2,7 @@
 
 package org.iesalandalus.programacion.tallermecanico.modelo.negocio;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
+
 import javax.naming.OperationNotSupportedException;
 import java.util.ArrayList;
 import java.util.List;
